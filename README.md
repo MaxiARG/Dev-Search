@@ -1,2 +1,13 @@
-# Dev-Search
-A mobile app useful for searching users from Github
+## Clone this Repo 
+
+To clone this repository 
+
+```bash
+git clone
+```
+
+### The project contains:
+- **React Navigation**
+- **Reanimated**
+- **Gesture Handler**
+- **Tamagui**
