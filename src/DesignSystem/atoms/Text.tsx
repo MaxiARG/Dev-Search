@@ -1,11 +1,11 @@
 import { styled, Text as TextTamagui  } from 'tamagui'
 
 const Text = styled(TextTamagui,{
-    fontSize: '$fontSize.md', 
+    fontSize: '$fontSize.md', //Tokenized inside DesignSystem/core/tokens
     fontWeight: '400', 
     color: 'black',
     fontFamily: 'Roboto-Regular',
-    variants: {
+    variants: { //Here we can configure style variants
         link: {
             true: {
                 fontSize: '$fontSize.md',
