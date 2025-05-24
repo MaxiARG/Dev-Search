@@ -1,18 +1,18 @@
-import React from 'react'
-import Container from './Container.styled'
-import { StatusBar } from 'react-native'
+import React from 'react';
+import Container from './Container.styled';
+import { StatusBar } from 'react-native';
 
 interface ContainerProps {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
-const MainContainer : React.FC<ContainerProps> = ({children}) => {
+const MainContainer: React.FC<ContainerProps> = ({ children }) => {
   return (
-    <Container> 
+    <Container>
       <StatusBar barStyle={'light-content'} />
-        {children}
+      {children}
     </Container>
-  )
-}
+  );
+};
 
-export default MainContainer
+export default MainContainer;

@@ -1,4 +1,4 @@
-import { TamaguiProvider } from 'tamagui'
+import { TamaguiProvider } from 'tamagui';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import tamaguiConfig from './tamagui.config';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,13 +10,12 @@ export default function App() {
   if (!fonts) return null;
 
   return (
-    <TamaguiProvider config={tamaguiConfig} >
+    <TamaguiProvider config={tamaguiConfig}>
       <GestureHandlerRootView>
         <NavigationContainer>
           <RootStack />
         </NavigationContainer>
       </GestureHandlerRootView>
     </TamaguiProvider>
-  )
+  );
 }
-

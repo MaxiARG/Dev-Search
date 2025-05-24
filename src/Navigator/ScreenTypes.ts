@@ -1,7 +1,6 @@
 export type MainScreensParams = {
-    Home: undefined;
-    UserProfile: undefined;
+  Home: undefined;
+  UserProfile: undefined;
 };
 
-export type AppScreensParams = MainScreensParams
-
+export type AppScreensParams = MainScreensParams;
