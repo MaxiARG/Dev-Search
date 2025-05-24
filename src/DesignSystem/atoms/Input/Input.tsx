@@ -5,9 +5,8 @@ import InputContainer from '@atoms/Input/InputContainer.styled'
 
 export function SearchInput() {
   const [isFocused, setIsFocused] = useState(false)
-  let focus = isFocused
   return (
-    <InputContainer focus={focus}>
+    <InputContainer focus={isFocused}>
       <Input
         flex={1}
         placeholder="Buscar usuarios de GitHub..."

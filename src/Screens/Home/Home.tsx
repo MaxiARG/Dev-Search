@@ -1,6 +1,5 @@
 import MainContainer from "../../DesignSystem/atoms/Container/MainContainer"
 import { SearchInput } from "../../DesignSystem/atoms/Input/Input"
-import { StatusBar } from "react-native"
 import useGetNavigation from "@common-hooks/useGetNavigation"
 import useConfigureScreen from "@common-hooks/useConfigureScreen"
 
@@ -10,7 +9,6 @@ const Home = () => {
 
     return (
         <MainContainer>
-            <StatusBar barStyle={'light-content'} />
             <SearchInput />
         </MainContainer>
     )
