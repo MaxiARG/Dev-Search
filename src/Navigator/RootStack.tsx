@@ -10,7 +10,18 @@ const AppStack = createNativeStackNavigator<AppScreensParams>();
 
 export default function RootStack() {
   return (
-    <AppStack.Navigator>
+    <AppStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#0d1117', 
+      },
+      headerTintColor: '#c9d1d9',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        fontSize: 33
+      },
+    }}
+    >
       <AppStack.Screen name="Home" component={Home} />
       <AppStack.Screen name="UserProfile" component={UserProfile} />
     </AppStack.Navigator>

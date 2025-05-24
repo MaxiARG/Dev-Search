@@ -1,6 +1,17 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "assets/*": ["assets/*"],
+      "@molecules/*": ["src/DesignSystem/molecules/*"],
+      "@atoms/*": ["src/DesignSystem/atoms/*"],
+      "@api/*": ["src/api/*"],
+      "@common-hooks/*": ["src/common-hooks/*"],
+      "@common-utils/*": ["src/common-utils/*"],
+      "@types/*": ["src/types/*"],
+      "@core/*": ["src/core/*"],
+    },
   }
 }

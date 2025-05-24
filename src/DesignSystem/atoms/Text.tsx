@@ -15,7 +15,6 @@ const Text = styled(TextTamagui,{
                 fontSize: '$fontSize.sm',
                 color: 'black',
                 fontFamily: 'Roboto-Regular',
-
             }
         }
     },

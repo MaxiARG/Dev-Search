@@ -1,38 +1,26 @@
 import { NavigationProp, useNavigation } from "@react-navigation/native"
-import {  useLayoutEffect, } from "react"
-import { ScrollView, View } from "tamagui"
-import Text from "../../DesignSystem/atoms/Text"
+import { useLayoutEffect, } from "react"
+import { Text, View } from "tamagui"
 import { AppScreensParams } from "../../Navigator/ScreenTypes"
+import MainContainer from "../../DesignSystem/atoms/Container/MainContainer"
+import { SearchInput } from "../../DesignSystem/atoms/Input/Input"
+import { StatusBar } from "react-native"
 
 const Home = () => {
     const navigation = useNavigation<NavigationProp<AppScreensParams>>()
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            title: 'Home'
+            title: 'Github users',
         })
     }
-    , [])
+        , [])
 
     return (
-        <>
-            <View flex={0.4} backgroundColor={'white'}></View>
-            <ScrollView
-                flex={1}
-                contentContainerStyle={{
-                    paddingVertical: '$padding.md',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: 'white'
-                }}
-            >
-                <View rowGap={10} alignItems="center">
-                    <Text link onPress={() => navigation.navigate('UserProfile')}>❤️ User Profile</Text>
-                    <Text>Just another placeholder User Profile</Text>
-                </View>
-            </ScrollView>
-            <View flex={0.4} backgroundColor={'white'}></View>
-        </>
+        <MainContainer>
+            <StatusBar barStyle={'light-content'} />
+            <SearchInput />
+        </MainContainer>
     )
 }
 
