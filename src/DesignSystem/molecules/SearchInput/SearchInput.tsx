@@ -1,12 +1,16 @@
-import { Input as InputTamagui } from 'tamagui';
+import { Input } from 'tamagui';
 import { useState } from 'react';
 import InputContainer from '@atoms/Input/InputContainer.styled';
-
-export function Input() {
+import { Icon } from '@atoms/Icon/Icon.styled';
+interface SearchInputProps {
+  placeholder: string;
+}
+export function SearchInput() {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <InputContainer focus={isFocused}>
-      <InputTamagui
+      <Icon name="search" size={18} color="$color.placeholder" />
+      <Input
         flex={1}
         placeholder="Buscar usuarios de GitHub..."
         placeholderTextColor="$color.placeholder"

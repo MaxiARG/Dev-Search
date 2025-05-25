@@ -6,6 +6,7 @@ const InputContainer = styled(XStack, {
   borderRadius: '$radius.md',
   paddingHorizontal: '$padding.sm',
   paddingVertical: '$padding.md',
+  alignItems: 'center',
   variants: {
     focus: {
       true: {

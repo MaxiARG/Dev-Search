@@ -8,10 +8,11 @@
       "@molecules/*": ["src/DesignSystem/molecules/*"],
       "@atoms/*": ["src/DesignSystem/atoms/*"],
       "@api/*": ["src/api/*"],
+      "@screens/*": ["src/screens/*"],
       "@common-hooks/*": ["src/common-hooks/*"],
       "@common-utils/*": ["src/common-utils/*"],
       "@types/*": ["src/types/*"],
-      "@core/*": ["src/core/*"],
-    },
+      "@core/*": ["src/core/*"]
+    }
   }
 }

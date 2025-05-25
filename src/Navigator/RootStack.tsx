@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from '../Screens/Home/Home';
-import { UserProfile } from '../Screens/UserProfile/UserProfile';
 import { AppScreensParams } from './ScreenTypes';
+import { UserProfile } from 'src/Screens/UserProfile/UserProfile';
+import Home from 'src/Screens/Home/Home';
 
 const AppStack = createNativeStackNavigator<AppScreensParams>();
 
