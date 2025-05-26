@@ -11,7 +11,6 @@ interface IconButtonProps
 }
 
 const IconButton: React.FC<IconButtonProps> = ({
-  onPress,
   color,
   iconSelectedName,
   iconUnselectedName,
@@ -30,7 +29,6 @@ const IconButton: React.FC<IconButtonProps> = ({
     console.log('sssss');
     updateFavorite(id);
     setIsSelected((prev) => !prev);
-    onPress?.(evt);
   };
 
   return (

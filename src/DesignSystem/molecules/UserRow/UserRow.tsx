@@ -28,9 +28,7 @@ const UserRow: React.FC<UserRowProps> = ({ user }) => {
           onPress={() => navigation.navigate('UserProfile', { user: user })}
         />
         <IconButton
-          onPress={() => {
-            updateFavorite(user?.id + '');
-          }}
+          id={user.id.toString()}
           paddingVertical={'$padding.lg'}
           paddingHorizontal={'$padding.xs'}
           iconSelectedName="heart-sharp"
