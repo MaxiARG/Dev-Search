@@ -1,15 +1,15 @@
 import MainContainer from '@atoms/Container/MainContainer';
 import Text from '@atoms/Text/Text';
-import useGetNavigation from '@common-hooks/useGetNavigation';
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
 import { View, Image, ScrollView } from 'tamagui';
 import useUserDataFetching from './hooks/useUserDataFetching';
 import Button from '@atoms/Button/Button';
+import useConfigureScreen from '@common-hooks/useConfigureScreen';
 
 export function UserProfile() {
-  const navigation = useGetNavigation();
   const { loading, user, setFavorite, favorite } = useUserDataFetching();
+  useConfigureScreen({ header_title: 'User' });
 
   if (loading) {
     return <ActivityIndicator size="large" color="#2f81f7" />;

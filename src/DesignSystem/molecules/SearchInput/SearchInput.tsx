@@ -7,9 +7,11 @@ interface SearchInputProps {
 }
 export function SearchInput() {
   const [isFocused, setIsFocused] = useState(false);
+
   const test = () => {
     console.log('Working Test');
   };
+
   return (
     <>
       <InputContainer focus={isFocused}>
