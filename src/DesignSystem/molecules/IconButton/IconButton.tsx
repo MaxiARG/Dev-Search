@@ -1,24 +1,35 @@
 import { View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { Icon } from '@atoms/Icon/Icon.styled';
 
-interface IconButtonProps {
-  iconProps: React.ComponentProps<typeof Icon>;
-  selected: boolean;
+interface IconButtonProps
+  extends Omit<React.ComponentProps<typeof Icon>, 'name'> {
   iconSelectedName: string;
   iconUnselectedName: string;
 }
+
 const IconButton: React.FC<IconButtonProps> = ({
-  iconProps,
-  selected,
+  onPress,
+  color,
   iconSelectedName,
   iconUnselectedName,
+  ...iconProps
 }) => {
+  const [isSelected, setIsSelected] = useState(false);
   return (
     <View>
       <Icon
-        name={selected ? iconSelectedName : iconUnselectedName}
-        // {...iconProps}
+        onPress={(evt) => {
+          setIsSelected((prev) => !prev);
+          return onPress?.(evt);
+        }}
+        color={
+          !isSelected
+            ? (color ?? '$color.favoriteInactive')
+            : '$color.favoriteInactive'
+        }
+        name={isSelected ? iconSelectedName : iconUnselectedName}
+        {...iconProps}
       />
     </View>
   );

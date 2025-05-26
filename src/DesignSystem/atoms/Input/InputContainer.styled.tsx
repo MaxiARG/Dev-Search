@@ -16,9 +16,9 @@ const InputContainer = styled(XStack, {
         borderColor: '$color.border',
       },
     },
-    defaultVariants: {
-      focus: false,
-    },
+  },
+  defaultVariants: {
+    focus: false,
   },
 });
 

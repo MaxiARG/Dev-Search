@@ -44877,6 +44877,20 @@ var tokens3 = (0, import_core57.createTokens)({
     "4xl": 20,
     "5xl": 28
   },
+  margin: {
+    none: 0,
+    xxxs: 2,
+    xxs: 4,
+    xs: 6,
+    sm: 8,
+    md: 10,
+    lg: 12,
+    xl: 16,
+    xxl: 24,
+    xxxl: 18,
+    "4xl": 20,
+    "5xl": 28
+  },
   gap: {
     xxs: 2,
     xs: 4,

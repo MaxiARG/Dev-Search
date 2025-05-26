@@ -1,25 +1,10 @@
-import { Button, StyleSheet } from 'react-native';
+import MainContainer from '@atoms/Container/MainContainer';
 import { View } from 'tamagui';
 
 export function UserProfile() {
   return (
-    <View style={styles.container}>
-      <Button title="shake" />
-    </View>
+    <MainContainer>
+      <View></View>
+    </MainContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    height: 120,
-    width: 120,
-    backgroundColor: '#b58df1',
-    borderRadius: 20,
-    marginVertical: 50,
-  },
-});

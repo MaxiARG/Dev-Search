@@ -2,22 +2,24 @@ import React from 'react';
 import IconIonic from '@expo/vector-icons/Ionicons';
 import { styled } from 'tamagui';
 
-// heredamos los tipos correctos de IconFA
-type IconProps = React.ComponentProps<typeof IconIonic>;
+// sobrescribimos 'name' para aceptar cualquier string
+type LooseIconProps = Omit<React.ComponentProps<typeof IconIonic>, 'name'> & {
+  name: string;
+};
 
-const IconBase = React.forwardRef<any, IconProps>(
+const IconBase = React.forwardRef<any, LooseIconProps>(
   ({ name, size, color, ...props }, ref) => {
     return (
       <IconIonic
         ref={ref}
-        name={name}
+        name={name as any}
         size={size}
         color={color}
-        weight="solid"
         {...props}
       />
     );
-  },
+  }
 );
-//wrapper para que los Icons de FA reconozcan tokens y colors
+
 export const Icon = styled(IconBase);
+

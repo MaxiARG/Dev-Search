@@ -6,15 +6,28 @@ import { GitHubUser } from '../types/types';
 import { getAxiosInstance } from './AxiosConfig';
 
 /**
- *
- * @param userName optional. If exists, indicates the exact username.
- * @returns GitHubUser[]
+ * Fetch general list of GitHub users (first 30 users).
  */
-const fetchUsers = (
-  userName: string = '',
-): Promise<AxiosResponse<GitHubUser[], void>> => {
-  const query = userName ? `/${userName}` : '';
-  return getAxiosInstance().get<GitHubUser[]>(`/users${query}`);
+const fetchUsers = (): Promise<AxiosResponse<GitHubUser[]>> => {
+  return getAxiosInstance().get('/users');
 };
 
-export { fetchUsers };
+/**
+ * Search users by term.
+ */
+const searchUsers = (
+  term: string,
+): Promise<AxiosResponse<{ items: GitHubUser[] }>> => {
+  return getAxiosInstance().get(`/search/users?q=${term}`);
+};
+
+/**
+ * Get a single user by exact username.
+ */
+const getUserByUsername = (
+  username: string,
+): Promise<AxiosResponse<GitHubUser>> => {
+  return getAxiosInstance().get(`/users/${username}`);
+};
+
+export { fetchUsers, searchUsers, getUserByUsername };

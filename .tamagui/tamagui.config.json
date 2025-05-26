@@ -154255,6 +154255,92 @@
           "variable": ""
         }
       },
+      "margin": {
+        "none": {
+          "isVar": true,
+          "key": "$none",
+          "name": "t-margin-none",
+          "val": 0,
+          "variable": ""
+        },
+        "xxxs": {
+          "isVar": true,
+          "key": "$xxxs",
+          "name": "t-margin-xxxs",
+          "val": 2,
+          "variable": ""
+        },
+        "xxs": {
+          "isVar": true,
+          "key": "$xxs",
+          "name": "t-margin-xxs",
+          "val": 4,
+          "variable": ""
+        },
+        "xs": {
+          "isVar": true,
+          "key": "$xs",
+          "name": "t-margin-xs",
+          "val": 6,
+          "variable": ""
+        },
+        "sm": {
+          "isVar": true,
+          "key": "$sm",
+          "name": "t-margin-sm",
+          "val": 8,
+          "variable": ""
+        },
+        "md": {
+          "isVar": true,
+          "key": "$md",
+          "name": "t-margin-md",
+          "val": 10,
+          "variable": ""
+        },
+        "lg": {
+          "isVar": true,
+          "key": "$lg",
+          "name": "t-margin-lg",
+          "val": 12,
+          "variable": ""
+        },
+        "xl": {
+          "isVar": true,
+          "key": "$xl",
+          "name": "t-margin-xl",
+          "val": 16,
+          "variable": ""
+        },
+        "xxl": {
+          "isVar": true,
+          "key": "$xxl",
+          "name": "t-margin-xxl",
+          "val": 24,
+          "variable": ""
+        },
+        "xxxl": {
+          "isVar": true,
+          "key": "$xxxl",
+          "name": "t-margin-xxxl",
+          "val": 18,
+          "variable": ""
+        },
+        "4xl": {
+          "isVar": true,
+          "key": "$4xl",
+          "name": "t-margin-4xl",
+          "val": 20,
+          "variable": ""
+        },
+        "5xl": {
+          "isVar": true,
+          "key": "$5xl",
+          "name": "t-margin-5xl",
+          "val": 28,
+          "variable": ""
+        }
+      },
       "gap": {
         "xxs": {
           "isVar": true,
@@ -154903,6 +154989,90 @@
         "isVar": true,
         "key": "$5xl",
         "name": "t-padding-5xl",
+        "val": 28,
+        "variable": ""
+      },
+      "$margin.none": {
+        "isVar": true,
+        "key": "$none",
+        "name": "t-margin-none",
+        "val": 0,
+        "variable": ""
+      },
+      "$margin.xxxs": {
+        "isVar": true,
+        "key": "$xxxs",
+        "name": "t-margin-xxxs",
+        "val": 2,
+        "variable": ""
+      },
+      "$margin.xxs": {
+        "isVar": true,
+        "key": "$xxs",
+        "name": "t-margin-xxs",
+        "val": 4,
+        "variable": ""
+      },
+      "$margin.xs": {
+        "isVar": true,
+        "key": "$xs",
+        "name": "t-margin-xs",
+        "val": 6,
+        "variable": ""
+      },
+      "$margin.sm": {
+        "isVar": true,
+        "key": "$sm",
+        "name": "t-margin-sm",
+        "val": 8,
+        "variable": ""
+      },
+      "$margin.md": {
+        "isVar": true,
+        "key": "$md",
+        "name": "t-margin-md",
+        "val": 10,
+        "variable": ""
+      },
+      "$margin.lg": {
+        "isVar": true,
+        "key": "$lg",
+        "name": "t-margin-lg",
+        "val": 12,
+        "variable": ""
+      },
+      "$margin.xl": {
+        "isVar": true,
+        "key": "$xl",
+        "name": "t-margin-xl",
+        "val": 16,
+        "variable": ""
+      },
+      "$margin.xxl": {
+        "isVar": true,
+        "key": "$xxl",
+        "name": "t-margin-xxl",
+        "val": 24,
+        "variable": ""
+      },
+      "$margin.xxxl": {
+        "isVar": true,
+        "key": "$xxxl",
+        "name": "t-margin-xxxl",
+        "val": 18,
+        "variable": ""
+      },
+      "$margin.4xl": {
+        "isVar": true,
+        "key": "$4xl",
+        "name": "t-margin-4xl",
+        "val": 20,
+        "variable": ""
+      },
+      "$margin.5xl": {
+        "isVar": true,
+        "key": "$5xl",
+        "name": "t-margin-5xl",
         "val": 28,
         "variable": ""
       },

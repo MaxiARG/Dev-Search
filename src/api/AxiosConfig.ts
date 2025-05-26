@@ -2,6 +2,11 @@ import axios from 'axios';
 
 const url = process.env.EXPO_PUBLIC_API_URL;
 
+if (!url) {
+  throw new Error(
+    'EXPO_PUBLIC_API_URL is not defined in the environment variables',
+  );
+}
 const axiosIntance = axios.create({
   baseURL: url,
   headers: { 'Content-Type': 'application/json' },
