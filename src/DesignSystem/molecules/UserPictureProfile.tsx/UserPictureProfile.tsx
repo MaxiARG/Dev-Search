@@ -1,7 +1,7 @@
 import Text from '@atoms/Text/Text';
 import React from 'react';
 import { GitHubUser } from 'src/types/types';
-import { View } from 'tamagui';
+import { Image, View } from 'tamagui';
 
 interface UserPictureProfileProps {
   data?: GitHubUser;
@@ -28,7 +28,16 @@ const UserPictureProfile: React.FC<UserPictureProfileProps> = ({
           height={60}
           borderRadius={25}
           backgroundColor={'$color.placeholder'}
-        ></View>
+        >
+          <Image
+            src={data?.avatar_url}
+            width={60}
+            height={60}
+            borderRadius={25}
+            alt={data?.login}
+            objectFit="cover"
+          />
+        </View>
         <Text color={'$color.textPrimary'} fontSize={'$fontSize.lg'}>
           {data?.login}
         </Text>

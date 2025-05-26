@@ -4,10 +4,19 @@ import TabsContainer from './TabsContainer.styled';
 import Divider from '@atoms/Divider/Divider';
 import { View } from 'tamagui';
 import SectionContainer from './SectionContainer.tsx/SectionContainer.styled';
+import { atom } from 'jotai/vanilla';
+import { useAtom } from 'jotai/react';
+
+const str = {
+  search: 'Buscar',
+  favorites: 'Favoritos',
+};
+
+export const sectionAtom = atom(0); //selectedIndex it could be Buscar or Favoritos
 
 const Tabs = () => {
   const [tabWidths, setTabWidths] = useState<number[]>([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useAtom(sectionAtom);
 
   const handleLayout = (index: number, width: number) => {
     setTabWidths((prev) => {
@@ -29,7 +38,7 @@ const Tabs = () => {
             }}
             onPress={() => setSelectedIndex(0)}
           >
-            Buscar
+            {str.search}
           </Text>
           <Divider
             width={selectedIndex === 0 ? tabWidths[0] || 0 : 0}
@@ -46,7 +55,7 @@ const Tabs = () => {
             }}
             onPress={() => setSelectedIndex(1)}
           >
-            Favoritos
+            {str.favorites}
           </Text>
           <Divider
             width={selectedIndex === 1 ? tabWidths[1] || 0 : 0}

@@ -2,7 +2,7 @@
 //https://api.github.com/search/users?q={term}
 //https://api.github.com/users/{Busername}
 import { AxiosResponse } from 'axios';
-import { GitHubUser } from '../types/types';
+import { GitHubUser, User } from '../types/types';
 import { getAxiosInstance } from './AxiosConfig';
 
 /**
@@ -24,9 +24,7 @@ const searchUsers = (
 /**
  * Get a single user by exact username.
  */
-const getUserByUsername = (
-  username: string,
-): Promise<AxiosResponse<GitHubUser>> => {
+const getUserByUsername = (username: string): Promise<AxiosResponse<User>> => {
   return getAxiosInstance().get(`/users/${username}`);
 };
 
