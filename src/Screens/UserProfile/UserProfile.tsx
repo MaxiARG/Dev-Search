@@ -31,7 +31,12 @@ export function UserProfile() {
             @{user.login}
           </Text>
           {user.bio && (
-            <Text color="#c9d1d9" textAlign="center" marginTop="$2">
+            <Text
+              color="#c9d1d9"
+              textAlign="center"
+              marginTop="$2"
+              fontSize={'$5'}
+            >
               {user.bio}
             </Text>
           )}
@@ -50,6 +55,7 @@ export function UserProfile() {
           marginBottom="$4"
           borderColor="#30363d"
           borderWidth={1}
+          rowGap={20}
         >
           <View flexDirection="row" justifyContent="space-around">
             <View alignItems="center">
