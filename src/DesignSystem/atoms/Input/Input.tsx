@@ -11,9 +11,7 @@ export function Input() {
   useEffect(() => {
     if (text.length >= 3) {
       clearTimeout(debounceTimeout);
-      debounceTimeout = setTimeout(() => {
-        console.log('hola mundo');
-      }, 500);
+      debounceTimeout = setTimeout(() => {}, 500);
     }
 
     return () => clearTimeout(debounceTimeout);

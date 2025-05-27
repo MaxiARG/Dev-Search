@@ -6,10 +6,11 @@ import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import UserRow from '@molecules/UserRow/UserRow';
 import { FlatList } from 'react-native';
 import { View } from 'tamagui';
+import useSearchUserResultAtom from 'src/common-atoms/useSearchUserResultAtom';
 
 const MainUserList = () => {
   const { error, loading, userListAtom } = useGetUsers();
-
+  const { searchResult } = useSearchUserResultAtom();
   return (
     <>
       {loading && <HomeLoading />}
@@ -34,7 +35,7 @@ const MainUserList = () => {
               }}
             >
               <FlatList
-                data={userListAtom}
+                data={searchResult?.result || userListAtom}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => <UserRow user={item} />}
                 ItemSeparatorComponent={() => <View height={22} />}

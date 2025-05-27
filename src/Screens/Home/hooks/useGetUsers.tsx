@@ -1,19 +1,12 @@
 import { useEffect, useState } from 'react';
 import { fetchUsers } from '@api/users';
-import {
-  defaultUsersResponse,
-  GitHubUser,
-  GitHubUsersResponse,
-} from 'src/types/types';
-import { atom } from 'jotai/vanilla';
-import { useAtom } from 'jotai/react';
-
-const defaultUserListAtom = atom([] as GitHubUser[]);
+import { defaultUsersResponse, GitHubUsersResponse } from 'src/types/types';
+import useDefaultUserListAtom from 'src/common-atoms/useDefaultUserListAtom';
 
 const useGetUsers = () => {
   const [response, setResponse] =
     useState<GitHubUsersResponse>(defaultUsersResponse);
-  const [userListAtom, setDefaultUserListAtom] = useAtom(defaultUserListAtom);
+  const { userListAtom, setDefaultUserListAtom } = useDefaultUserListAtom();
 
   useEffect(() => {
     const getUsers = async () => {

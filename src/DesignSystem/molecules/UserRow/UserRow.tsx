@@ -18,6 +18,7 @@ const str = {
 
 const UserRow: React.FC<UserRowProps> = ({ user }) => {
   const navigation = useGetNavigation();
+
   return (
     <UserRowContainer>
       <UserPictureProfile data={user} />
