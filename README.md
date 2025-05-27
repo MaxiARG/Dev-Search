@@ -46,7 +46,7 @@ Una aplicación móvil construida con **React Native** que permite explorar usua
 - **lodash**
 - **moti**
 - **react-native-svg**
-- **Tamagui**
+- **SVG files**
 
 ---
 
