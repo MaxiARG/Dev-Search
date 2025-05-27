@@ -59,7 +59,7 @@ Una aplicación móvil construida con **React Native** que permite explorar usua
    yarn install
    yarn run start
    S key for switching to Expo Go
-   A key for opening Android Studio, or i Key for opening IOS simulator
+   A key for opening Android Studio
     ```
 
 
