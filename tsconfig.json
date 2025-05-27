@@ -14,5 +14,6 @@
       "@common-utils/*": ["src/common-utils/*"],
       "@core/*": ["src/core/*"]
     }
-  }
+  },
+  "include": ["src"]
 }

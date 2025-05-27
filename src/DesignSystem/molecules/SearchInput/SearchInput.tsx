@@ -1,5 +1,5 @@
 import { Input } from 'tamagui';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import InputContainer from '@atoms/Input/InputContainer.styled';
 import { Icon } from '@atoms/Icon/Icon.styled';
 import { sectionAtom } from '@molecules/Tabs/Tabs';
@@ -9,7 +9,7 @@ import useSearchWithDebounce from './hooks/useSearchWithDebounce';
 interface SearchInputProps {
   placeholder: string;
 }
-export function SearchInput() {
+export function SearchInput({ placeholder }: SearchInputProps) {
   const [isFocused, setIsFocused] = useState(false);
   const setSelectedIndex = useSetAtom(sectionAtom);
   const { setText, text } = useSearchWithDebounce();
@@ -25,7 +25,7 @@ export function SearchInput() {
         value={text}
         paddingVertical={0}
         height={30}
-        placeholder="Buscar usuarios de GitHub..."
+        placeholder={placeholder || 'Buscar usuarios de GitHub...'}
         placeholderTextColor="$color.placeholder"
         backgroundColor="transparent"
         color="$color.textPrimary"

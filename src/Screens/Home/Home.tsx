@@ -10,13 +10,17 @@ import { View } from 'tamagui';
 const Home = () => {
   useConfigureScreen({ header_title: 'Github users' });
   const selectedIndex = useAtomValue(sectionAtom);
+  const tabsMapper: Record<number, React.ReactNode> = {
+    0: <MainUserList />,
+    1: <FavoriteList />,
+  };
   return (
     <MainContainer>
       <View rowGap={'$gap.md'}>
-        <SearchInput />
+        <SearchInput placeholder="Buscar usuarios de GitHub..." />
         <Tabs />
       </View>
-      {selectedIndex === 0 ? <MainUserList /> : <FavoriteList />}
+      {tabsMapper[selectedIndex]}
     </MainContainer>
   );
 };

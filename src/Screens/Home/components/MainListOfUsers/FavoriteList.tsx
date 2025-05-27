@@ -4,6 +4,7 @@ import useFavoriteStorage from 'src/Navigator/hooks/useFavoriteStorage';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import UserRow from '@molecules/UserRow/UserRow';
 import { View } from 'tamagui';
+import EmptyFavs from 'assets/svgs/empty-favorites.svg';
 
 const FavoriteList = () => {
   const { favorites: users } = useFavoriteStorage();
@@ -39,6 +40,25 @@ const FavoriteList = () => {
           )}
         </Animated.View>
       )}
+      {!users ||
+        (users?.length === 0 && (
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <EmptyFavs width={100} height={100} />
+            <Animated.Text
+              entering={FadeIn}
+              exiting={FadeOut}
+              style={{ fontSize: 18, color: '#888' }}
+            >
+              No hay usuarios favoritos
+            </Animated.Text>
+          </View>
+        ))}
     </>
   );
 };
