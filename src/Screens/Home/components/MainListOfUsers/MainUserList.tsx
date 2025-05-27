@@ -7,10 +7,14 @@ import UserRow from '@molecules/UserRow/UserRow';
 import { FlatList } from 'react-native';
 import { View } from 'tamagui';
 import useSearchUserResultAtom from 'src/common-atoms/useSearchUserResultAtom';
+import NoResultsFound from './NoResultsFound';
 
 const MainUserList = () => {
   const { error, loading, userListAtom } = useGetUsers();
   const { searchResult } = useSearchUserResultAtom();
+
+  if (searchResult?.result?.length === 0) return <NoResultsFound />;
+
   return (
     <>
       {loading && <HomeLoading />}

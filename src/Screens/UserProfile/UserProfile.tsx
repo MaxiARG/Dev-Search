@@ -13,33 +13,39 @@ const str = {
   Followers: 'Followers',
   Following: 'Following',
 };
+
 export function UserProfile() {
+  useConfigureScreen({ header_title: 'User' });
   const { loading, user } = useUserDataFetching();
   const { isFavorite, toggleFavorite } = useFavoriteStorage();
-  useConfigureScreen({ header_title: 'User' });
-
+  const imgSize = 120;
   if (loading) {
     return <ActivityIndicator size="large" color="#2f81f7" />;
   }
 
   return (
     <MainContainer>
-      <ScrollView backgroundColor="#0d1117" padding="$4">
+      <ScrollView backgroundColor="$colors.background" padding="$4">
         {/* Avatar y nombre */}
         <View alignItems="center" marginBottom="$4" rowGap={20}>
           <Image
             source={{ uri: user.avatar_url }}
-            style={{ width: 120, height: 120, borderRadius: 60 }}
+            style={{ width: imgSize, height: imgSize, borderRadius: 60 }}
           />
-          <Text fontSize={24} color="#c9d1d9" fontWeight="600" marginTop="$2">
+          <Text
+            type="title"
+            color="$textPrimary"
+            fontWeight="600"
+            marginTop="$2"
+          >
             {user.name || user.login}
           </Text>
-          <Text color="#8b949e" fontSize={16}>
+          <Text color="$textSecondary" fontSize={16}>
             @{user.login}
           </Text>
           {user?.bio && (
             <Text
-              color="#c9d1d9"
+              color="$textSecondary"
               textAlign="center"
               marginTop="$2"
               fontSize={'$5'}
@@ -69,12 +75,11 @@ export function UserProfile() {
 
         {/* Estadísticas con recuadro */}
         <View
-          backgroundColor="#161b22"
+          backgroundColor="$surface"
           borderRadius="$4"
-          padding="$3"
           marginBottom="$margin.xs"
           marginTop="$margin.md"
-          borderColor="#30363d"
+          borderColor="$border"
           borderWidth={1}
           rowGap={'$gap.md'}
         >
@@ -113,7 +118,6 @@ export function UserProfile() {
           }
           textColor={isFavorite(user.id) ? 'black' : 'white'}
           backgroundColor={isFavorite(user.id) ? '#f78166' : '#2f81f7'}
-          // color="#ffffff"
           borderRadius={4}
           justifyContent="center"
           alignItems="center"

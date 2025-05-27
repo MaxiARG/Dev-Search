@@ -13,9 +13,21 @@ const Text = styled(TextTamagui, {
         fontWeight: '400',
       },
     },
+    type: {
+      title: {
+        fontSize: '$size.lg',
+      },
+      subtitle: {
+        fontSize: '$size.md',
+      },
+      body: {
+        fontSize: '$size.sm',
+      },
+    },
   },
   defaultVariants: {
     solid: false,
+    type: 'body',
   },
 });
 

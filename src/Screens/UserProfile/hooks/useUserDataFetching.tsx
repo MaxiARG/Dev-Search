@@ -11,7 +11,6 @@ const useUserDataFetching = () => {
   };
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  // const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     setLoading(true);

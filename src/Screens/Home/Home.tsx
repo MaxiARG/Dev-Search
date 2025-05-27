@@ -6,7 +6,7 @@ import MainUserList from './components/MainListOfUsers/MainUserList';
 import FavoriteList from './components/MainListOfUsers/FavoriteList';
 import { View } from 'tamagui';
 import useSelectedTabSectionAtom from 'src/common-atoms/useSelectedTabSectionAtom';
-import useSearchUserResultAtom from 'src/common-atoms/useSearchUserResultAtom';
+import { Keyboard } from 'react-native';
 
 const Home = () => {
   useConfigureScreen({ header_title: 'Github users' });
@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <MainContainer>
-      <View rowGap={'$gap.md'}>
+      <View rowGap={'$gap.md'} onPress={() => Keyboard.dismiss()}>
         <SearchInput placeholder="Buscar usuarios de GitHub..." />
         <Tabs />
       </View>
