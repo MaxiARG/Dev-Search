@@ -19,7 +19,7 @@ const UserRow: React.FC<UserRowProps> = ({ user }) => {
   const navigation = useGetNavigation();
 
   return (
-    <UserRowContainer paddingBottom={'$padding.sm'}>
+    <UserRowContainer>
       <UserPictureProfile data={user} />
       <View flexDirection="row" alignItems="center" columnGap={'$gap.lg'}>
         <Button
