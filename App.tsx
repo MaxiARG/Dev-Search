@@ -1,3 +1,4 @@
+import React from 'react';
 import { TamaguiProvider } from 'tamagui';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import tamaguiConfig from './tamagui.config';
