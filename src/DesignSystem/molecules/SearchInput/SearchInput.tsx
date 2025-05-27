@@ -1,30 +1,18 @@
 import { Input } from 'tamagui';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import InputContainer from '@atoms/Input/InputContainer.styled';
 import { Icon } from '@atoms/Icon/Icon.styled';
-let debounceTimeout: ReturnType<typeof setTimeout>;
+import { sectionAtom } from '@molecules/Tabs/Tabs';
+import { useSetAtom } from 'jotai/react';
+import useSearchWithDebounce from './hooks/useSearchWithDebounce';
 
 interface SearchInputProps {
   placeholder: string;
 }
 export function SearchInput() {
   const [isFocused, setIsFocused] = useState(false);
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    if (text.length >= 3) {
-      clearTimeout(debounceTimeout);
-      debounceTimeout = setTimeout(() => {
-        console.log('hola mundo');
-      }, 500);
-    }
-
-    return () => clearTimeout(debounceTimeout);
-  }, [text]);
-
-  const test = () => {
-    console.log('Working Test');
-  };
+  const setSelectedIndex = useSetAtom(sectionAtom);
+  const { setText, text } = useSearchWithDebounce();
 
   return (
     <InputContainer focus={isFocused}>
@@ -42,7 +30,10 @@ export function SearchInput() {
         backgroundColor="transparent"
         color="$color.textPrimary"
         borderWidth={0}
-        onFocus={() => setIsFocused(true)}
+        onFocus={() => {
+          setSelectedIndex(0);
+          setIsFocused(true);
+        }}
         onBlur={() => setIsFocused(false)}
       />
     </InputContainer>

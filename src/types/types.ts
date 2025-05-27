@@ -1,6 +1,6 @@
 export interface GitHubUser {
   login: string;
-  id: number;
+  id: string;
   node_id: string;
   avatar_url: string;
   gravatar_id: string;
@@ -55,3 +55,15 @@ export interface User {
   created_at: Date;
   updated_at: Date;
 }
+
+export interface GitHubUsersResponse {
+  users: GitHubUser[];
+  loading: boolean;
+  error: Error | null;
+}
+
+export const defaultUsersResponse: GitHubUsersResponse = {
+  users: [],
+  loading: false,
+  error: null,
+};

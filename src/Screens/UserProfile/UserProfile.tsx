@@ -6,9 +6,16 @@ import { View, Image, ScrollView } from 'tamagui';
 import useUserDataFetching from './hooks/useUserDataFetching';
 import Button from '@atoms/Button/Button';
 import useConfigureScreen from '@common-hooks/useConfigureScreen';
+import useFavoriteStorage from 'src/Navigator/hooks/useFavoriteStorage';
 
+const str = {
+  Repos: 'Repos',
+  Followers: 'Followers',
+  Following: 'Following',
+};
 export function UserProfile() {
-  const { loading, user, setFavorite, favorite } = useUserDataFetching();
+  const { loading, user } = useUserDataFetching();
+  const { isFavorite, toggleFavorite } = useFavoriteStorage();
   useConfigureScreen({ header_title: 'User' });
 
   if (loading) {
@@ -30,7 +37,7 @@ export function UserProfile() {
           <Text color="#8b949e" fontSize={16}>
             @{user.login}
           </Text>
-          {user.bio && (
+          {user?.bio && (
             <Text
               color="#c9d1d9"
               textAlign="center"
@@ -40,9 +47,22 @@ export function UserProfile() {
               {user.bio}
             </Text>
           )}
-          {user.location && (
-            <Text color="#8b949e" marginTop="$2">
-              📍 {user.location}
+          {user?.location && (
+            <Text
+              color="$textSecondary"
+              marginTop="$2"
+              fontSize={'$fontSize.md'}
+            >
+              Location: {user?.location}
+            </Text>
+          )}
+          {user?.blog && (
+            <Text
+              color="$textSecondary"
+              marginTop="$2"
+              fontSize={'$fontSize.md'}
+            >
+              Blog: {user?.blog}
             </Text>
           )}
         </View>
@@ -52,42 +72,52 @@ export function UserProfile() {
           backgroundColor="#161b22"
           borderRadius="$4"
           padding="$3"
-          marginBottom="$4"
+          marginBottom="$margin.xs"
+          marginTop="$margin.md"
           borderColor="#30363d"
           borderWidth={1}
-          rowGap={20}
+          rowGap={'$gap.md'}
         >
           <View flexDirection="row" justifyContent="space-around">
             <View alignItems="center">
-              <Text color="#c9d1d9" fontWeight="600">
+              <Text color="$textPrimary" fontSize={'$fontSize.xl'}>
                 {user.public_repos}
               </Text>
-              <Text color="#8b949e">Repos</Text>
+              <Text color="$textSecondary" fontSize={'$fontSize.lg'}>
+                {str.Repos}
+              </Text>
             </View>
             <View alignItems="center">
-              <Text color="#c9d1d9" fontWeight="600">
+              <Text color="$textPrimary" fontSize={'$fontSize.xl'}>
                 {user.followers}
               </Text>
-              <Text color="#8b949e">Followers</Text>
+              <Text color="$textSecondary" fontSize={'$fontSize.lg'}>
+                {str.Followers}
+              </Text>
             </View>
             <View alignItems="center">
-              <Text color="#c9d1d9" fontWeight="600">
+              <Text color="$textPrimary" fontSize={'$fontSize.xl'}>
                 {user.following}
               </Text>
-              <Text color="#8b949e">Following</Text>
+              <Text color="$textSecondary" fontSize={'$fontSize.lg'}>
+                {str.Following}
+              </Text>
             </View>
           </View>
         </View>
 
         {/* Botón de favorito */}
         <Button
-          title={favorite ? 'Quitar de favoritos' : 'Marcar como favorito'}
-          backgroundColor={favorite ? '#f78166' : '#2f81f7'}
-          color="#ffffff"
-          borderRadius="$3"
-          paddingVertical="$3"
-          fontWeight="600"
-          onPress={() => setFavorite((prev) => !prev)}
+          title={
+            isFavorite(user.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'
+          }
+          textColor={isFavorite(user.id) ? 'black' : 'white'}
+          backgroundColor={isFavorite(user.id) ? '#f78166' : '#2f81f7'}
+          // color="#ffffff"
+          borderRadius={4}
+          justifyContent="center"
+          alignItems="center"
+          onPress={() => toggleFavorite(user)}
         />
       </ScrollView>
     </MainContainer>

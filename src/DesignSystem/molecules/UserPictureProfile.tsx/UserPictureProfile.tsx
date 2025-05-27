@@ -1,15 +1,18 @@
 import Text from '@atoms/Text/Text';
 import React from 'react';
+import { FavoriteUser } from 'src/Navigator/hooks/useFavoriteStorage';
 import { GitHubUser } from 'src/types/types';
 import { Image, View } from 'tamagui';
 
 interface UserPictureProfileProps {
-  data?: GitHubUser;
+  data?: FavoriteUser;
 }
 const UserPictureProfile: React.FC<UserPictureProfileProps> = ({
   data,
   ...props
 }) => {
+  const imgSize = 60;
+  const borderRadius = 25;
   return (
     <View
       flexDirection="row"
@@ -24,16 +27,16 @@ const UserPictureProfile: React.FC<UserPictureProfileProps> = ({
         columnGap={'$margin.xxl'}
       >
         <View
-          width={60}
-          height={60}
-          borderRadius={25}
+          width={imgSize}
+          height={imgSize}
+          borderRadius={borderRadius}
           backgroundColor={'$color.placeholder'}
         >
           <Image
             src={data?.avatar_url}
-            width={60}
-            height={60}
-            borderRadius={25}
+            width={imgSize}
+            height={imgSize}
+            borderRadius={borderRadius}
             alt={data?.login}
             objectFit="cover"
           />

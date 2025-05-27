@@ -8,13 +8,13 @@ import { FlatList } from 'react-native';
 import { View } from 'tamagui';
 
 const MainUserList = () => {
-  const { users, error, loading } = useGetUsers();
+  const { error, loading, userListAtom } = useGetUsers();
 
   return (
     <>
       {loading && <HomeLoading />}
       {error && <ErrorScreen message={error?.message} />}
-      {!loading && !error && users && users.length > 0 && (
+      {!loading && !error && userListAtom && userListAtom.length > 0 && (
         <Animated.View
           entering={FadeIn}
           exiting={FadeOut}
@@ -24,7 +24,7 @@ const MainUserList = () => {
             marginTop: 22,
           }}
         >
-          {!loading && !error && users && users.length > 0 && (
+          {!loading && !error && userListAtom && userListAtom.length > 0 && (
             <Animated.View
               entering={FadeIn}
               exiting={FadeOut}
@@ -34,7 +34,7 @@ const MainUserList = () => {
               }}
             >
               <FlatList
-                data={users}
+                data={userListAtom}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => <UserRow user={item} />}
                 ItemSeparatorComponent={() => <View height={22} />}

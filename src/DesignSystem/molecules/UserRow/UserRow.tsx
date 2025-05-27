@@ -6,10 +6,10 @@ import UserRowContainer from './UserRow.styled';
 import { View } from 'tamagui';
 import { GitHubUser } from 'src/types/types';
 import useGetNavigation from '@common-hooks/useGetNavigation';
-import useFavoriteStorage from 'src/Navigator/hooks/useFavoriteStorage';
+import { FavoriteUser } from 'src/Navigator/hooks/useFavoriteStorage';
 
 export interface UserRowProps {
-  user: GitHubUser;
+  user: FavoriteUser;
 }
 
 const str = {
@@ -18,7 +18,6 @@ const str = {
 
 const UserRow: React.FC<UserRowProps> = ({ user }) => {
   const navigation = useGetNavigation();
-  const { updateFavorite } = useFavoriteStorage();
   return (
     <UserRowContainer>
       <UserPictureProfile data={user} />
@@ -28,7 +27,7 @@ const UserRow: React.FC<UserRowProps> = ({ user }) => {
           onPress={() => navigation.navigate('UserProfile', { user: user })}
         />
         <IconButton
-          id={user.id.toString()}
+          user={user}
           paddingVertical={'$padding.lg'}
           paddingHorizontal={'$padding.xs'}
           iconSelectedName="heart-sharp"

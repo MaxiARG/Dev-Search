@@ -5,14 +5,17 @@ import Tabs, { sectionAtom } from '@molecules/Tabs/Tabs';
 import MainUserList from './components/MainListOfUsers/MainUserList';
 import { useAtomValue } from 'jotai/react';
 import FavoriteList from './components/MainListOfUsers/FavoriteList';
+import { View } from 'tamagui';
 
 const Home = () => {
   useConfigureScreen({ header_title: 'Github users' });
   const selectedIndex = useAtomValue(sectionAtom);
   return (
     <MainContainer>
-      <SearchInput />
-      <Tabs />
+      <View rowGap={'$gap.md'}>
+        <SearchInput />
+        <Tabs />
+      </View>
       {selectedIndex === 0 ? <MainUserList /> : <FavoriteList />}
     </MainContainer>
   );

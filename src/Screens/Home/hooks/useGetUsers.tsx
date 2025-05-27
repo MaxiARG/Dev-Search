@@ -1,35 +1,37 @@
 import { useEffect, useState } from 'react';
 import { fetchUsers } from '@api/users';
-import { GitHubUser } from 'src/types/types';
+import {
+  defaultUsersResponse,
+  GitHubUser,
+  GitHubUsersResponse,
+} from 'src/types/types';
+import { atom } from 'jotai/vanilla';
+import { useAtom } from 'jotai/react';
 
-interface GitHubUsersResponse {
-  users: GitHubUser[];
-  loading: boolean;
-  error: Error | null;
-}
-const defaultUsersResponse: GitHubUsersResponse = {
-  users: [],
-  loading: true,
-  error: null,
-};
+const defaultUserListAtom = atom([] as GitHubUser[]);
 
 const useGetUsers = () => {
   const [response, setResponse] =
     useState<GitHubUsersResponse>(defaultUsersResponse);
+  const [userListAtom, setDefaultUserListAtom] = useAtom(defaultUserListAtom);
 
   useEffect(() => {
     const getUsers = async () => {
       try {
-        setResponse({
-          ...defaultUsersResponse,
-          loading: true,
-        });
-        const resp = await fetchUsers();
-        setResponse({
-          users: resp.data,
-          loading: false,
-          error: null,
-        });
+        // This will cache the response.
+        if (!userListAtom || userListAtom.length === 0) {
+          setResponse({
+            ...defaultUsersResponse,
+            loading: true,
+          });
+          const resp = await fetchUsers();
+          setResponse({
+            users: resp.data,
+            loading: false,
+            error: null,
+          });
+          setDefaultUserListAtom(resp.data);
+        }
       } catch (error) {
         setResponse({
           users: [],
@@ -43,7 +45,7 @@ const useGetUsers = () => {
     getUsers();
   }, []);
 
-  return { ...response };
+  return { ...response, userListAtom };
 };
 
 export default useGetUsers;
