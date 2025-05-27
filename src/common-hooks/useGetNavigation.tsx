@@ -1,5 +1,5 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { AppScreensParams, MainScreensParams } from 'src/Navigator/ScreenTypes';
+import { MainScreensParams } from 'src/Navigator/ScreenTypes';
 
 /**
  * Return a correctly typed navigator

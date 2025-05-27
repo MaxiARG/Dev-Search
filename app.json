@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "template",
-    "slug": "template",
+    "name": "Dev-Search",
+    "slug": "Dev-Search",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0d1117"
     },
     "ios": {
       "supportsTablet": true
@@ -18,16 +18,14 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0d1117"
       },
       "package": "com.org.template"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-font"
-    ],
+    "plugins": ["expo-font"],
     "extra": {
       "eas": {
         "projectId": "1941abea-7e41-4f30-bc50-0749226f4794"

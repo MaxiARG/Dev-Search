@@ -1,7 +1,6 @@
 import Text from '@atoms/Text/Text';
 import React from 'react';
 import { FavoriteUser } from 'src/Navigator/hooks/useFavoriteStorage';
-import { GitHubUser } from 'src/types/types';
 import { Image, View } from 'tamagui';
 
 interface UserPictureProfileProps {
@@ -41,9 +40,11 @@ const UserPictureProfile: React.FC<UserPictureProfileProps> = ({
             objectFit="cover"
           />
         </View>
-        <Text color={'$color.textPrimary'} fontSize={'$fontSize.lg'}>
-          {data?.login}
-        </Text>
+        <View flex={1}>
+          <Text color={'$color.textPrimary'} type="body">
+            {data?.login}
+          </Text>
+        </View>
       </View>
     </View>
   );

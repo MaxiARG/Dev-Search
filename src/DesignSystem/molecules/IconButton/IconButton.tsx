@@ -4,7 +4,6 @@ import { Icon } from '@atoms/Icon/Icon.styled';
 import useFavoriteStorage, {
   FavoriteUser,
 } from 'src/Navigator/hooks/useFavoriteStorage';
-import { GitHubUser } from 'src/types/types';
 
 interface IconButtonProps
   extends Omit<React.ComponentProps<typeof Icon>, 'name'> {

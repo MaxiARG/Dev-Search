@@ -41,7 +41,12 @@ Una aplicación móvil construida con **React Native** que permite explorar usua
 - **Axios** para consumo de APIs
 - **Jotai** Contenedor de estado global, como Context o Redux
 - **Tamagui** Usado para la creacion del design system, tokenizacion de atributos y creacion de componentes con estilos.
-
+- **async-storage**
+- **dotenv**
+- **lodash**
+- **moti**
+- **react-native-svg**
+- **Tamagui**
 
 ---
 
@@ -53,4 +58,15 @@ Una aplicación móvil construida con **React Native** que permite explorar usua
    cd Dev-Search
    yarn install
    yarn run start
+   S key for switching to Expo Go
+   A key for opening Android Studio, or i Key for opening IOS simulator
     ```
+
+
+## 🏠 Notas
+
+- El buscador tiene un debounce de 1 segundo a partir de la 3er letra. Es decir, no realiza busquedas con 1 o 2 letras.
+
+
+- Se incorpora Design System, con tokens, esquema de colores, atomos y moleculas y variantes de cada uno.
+- 

@@ -1,6 +1,6 @@
 # 🎨 Paleta de Colores - GitHub Users App (Tema Oscuro)
 
-Esta paleta define los colores utilizados en la interfaz principal de la pantalla de inicio de la aplicación móvil para búsqueda de usuarios de GitHub, con estilo dark inspirado en el sitio oficial de React.
+Inspirado en el sitio oficial de React.
 
 ## Fondo
 

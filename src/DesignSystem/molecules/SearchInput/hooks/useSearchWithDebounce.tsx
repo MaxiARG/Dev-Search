@@ -12,11 +12,10 @@ const useSearchWithDebounce = ({
   debounceTime = 1000,
 }: UseSearchWithDebounceProps) => {
   const [text, setText] = useState('');
-  const { searchResult, setSearchResult, setSearchResultWrapper } =
-    useSearchUserResultAtom();
+  const { searchResult, setSearchResultWrapper } = useSearchUserResultAtom();
 
   useEffect(() => {
-    if (text.length >= 3) {
+    if (text?.length >= 3) {
       clearTimeout(debounceTimeout);
       debounceTimeout = setTimeout(() => {
         searchUsers(text)
@@ -24,12 +23,12 @@ const useSearchWithDebounce = ({
             setSearchResultWrapper(response?.data?.items);
           })
           .catch((error) => {
-            setSearchResultWrapper(defaultUserSearchResult.result);
+            setSearchResultWrapper(defaultUserSearchResult?.result);
             console.error('Error fetching search results:', error);
           });
       }, debounceTime);
     } else {
-      setSearchResultWrapper(defaultUserSearchResult.result);
+      setSearchResultWrapper(defaultUserSearchResult?.result);
     }
 
     return () => clearTimeout(debounceTimeout);

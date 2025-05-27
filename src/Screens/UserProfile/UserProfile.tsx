@@ -19,6 +19,7 @@ export function UserProfile() {
   const { loading, user } = useUserDataFetching();
   const { isFavorite, toggleFavorite } = useFavoriteStorage();
   const imgSize = 120;
+
   if (loading) {
     return <ActivityIndicator size="large" color="#2f81f7" />;
   }
@@ -32,42 +33,24 @@ export function UserProfile() {
             source={{ uri: user.avatar_url }}
             style={{ width: imgSize, height: imgSize, borderRadius: 60 }}
           />
-          <Text
-            type="title"
-            color="$textPrimary"
-            fontWeight="600"
-            marginTop="$2"
-          >
+          <Text type="title" color="$textPrimary">
             {user.name || user.login}
           </Text>
-          <Text color="$textSecondary" fontSize={16}>
+          <Text color="$textSecondary" type="subtitle">
             @{user.login}
           </Text>
           {user?.bio && (
-            <Text
-              color="$textSecondary"
-              textAlign="center"
-              marginTop="$2"
-              fontSize={'$5'}
-            >
+            <Text color="$textSecondary" type="body">
               {user.bio}
             </Text>
           )}
           {user?.location && (
-            <Text
-              color="$textSecondary"
-              marginTop="$2"
-              fontSize={'$fontSize.md'}
-            >
+            <Text color="$textSecondary" type="body">
               Location: {user?.location}
             </Text>
           )}
           {user?.blog && (
-            <Text
-              color="$textSecondary"
-              marginTop="$2"
-              fontSize={'$fontSize.md'}
-            >
+            <Text color="$textSecondary" type="body">
               Blog: {user?.blog}
             </Text>
           )}
@@ -85,26 +68,26 @@ export function UserProfile() {
         >
           <View flexDirection="row" justifyContent="space-around">
             <View alignItems="center">
-              <Text color="$textPrimary" fontSize={'$fontSize.xl'}>
+              <Text color="$textPrimary" type="subtitle">
                 {user.public_repos}
               </Text>
-              <Text color="$textSecondary" fontSize={'$fontSize.lg'}>
+              <Text color="$textSecondary" type="subtitle">
                 {str.Repos}
               </Text>
             </View>
             <View alignItems="center">
-              <Text color="$textPrimary" fontSize={'$fontSize.xl'}>
+              <Text color="$textPrimary" type="subtitle">
                 {user.followers}
               </Text>
-              <Text color="$textSecondary" fontSize={'$fontSize.lg'}>
+              <Text color="$textSecondary" type="subtitle">
                 {str.Followers}
               </Text>
             </View>
             <View alignItems="center">
-              <Text color="$textPrimary" fontSize={'$fontSize.xl'}>
+              <Text color="$textPrimary" type="subtitle">
                 {user.following}
               </Text>
-              <Text color="$textSecondary" fontSize={'$fontSize.lg'}>
+              <Text color="$textSecondary" type="subtitle">
                 {str.Following}
               </Text>
             </View>
@@ -116,11 +99,15 @@ export function UserProfile() {
           title={
             isFavorite(user.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'
           }
+          style={{
+            backgroundColor: isFavorite(user.id) ? '#f78166' : '#2f81f7',
+            borderRadius: 8,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingVertical: 8,
+            marginTop: 5,
+          }}
           textColor={isFavorite(user.id) ? 'black' : 'white'}
-          backgroundColor={isFavorite(user.id) ? '#f78166' : '#2f81f7'}
-          borderRadius={4}
-          justifyContent="center"
-          alignItems="center"
           onPress={() => toggleFavorite(user)}
         />
       </ScrollView>

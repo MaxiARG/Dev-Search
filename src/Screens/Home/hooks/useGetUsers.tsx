@@ -11,7 +11,7 @@ const useGetUsers = () => {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        // This will cache the response.
+        // This will cache the response, so it won't fetch again if the atom is already set
         if (!userListAtom || userListAtom.length === 0) {
           setResponse({
             ...defaultUsersResponse,

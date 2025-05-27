@@ -4,6 +4,8 @@ const Text = styled(TextTamagui, {
   fontSize: '$size.sm',
   color: '$color.textPrimary',
   fontFamily: 'Roboto-Regular',
+  numberOfLines: 2,
+  textOverflow: 'ellipsis',
   variants: {
     solid: {
       true: {
@@ -15,13 +17,16 @@ const Text = styled(TextTamagui, {
     },
     type: {
       title: {
-        fontSize: '$size.lg',
+        fontSize: '$fontSize.xl',
       },
       subtitle: {
-        fontSize: '$size.md',
+        fontSize: '$fontSize.lg',
       },
       body: {
-        fontSize: '$size.sm',
+        fontSize: '$fontSize.md',
+      },
+      caption: {
+        fontSize: '$fontSize.sm',
       },
     },
   },

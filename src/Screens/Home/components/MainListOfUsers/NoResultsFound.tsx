@@ -20,7 +20,9 @@ const NoResultsFound = () => {
         }}
       >
         <NoResultsWasFound width={svgSize} height={svgSize} />
-        <Text style={{ fontSize: 18, color: '#888' }}>{str.no_results}</Text>
+        <Text color={'$textSecondary'} type="subtitle">
+          {str.no_results}
+        </Text>
       </Animated.View>
     </View>
   );

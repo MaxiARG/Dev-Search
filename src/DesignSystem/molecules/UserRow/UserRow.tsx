@@ -4,7 +4,6 @@ import IconButton from '@molecules/IconButton/IconButton';
 import Button from '@atoms/Button/Button';
 import UserRowContainer from './UserRow.styled';
 import { View } from 'tamagui';
-import { GitHubUser } from 'src/types/types';
 import useGetNavigation from '@common-hooks/useGetNavigation';
 import { FavoriteUser } from 'src/Navigator/hooks/useFavoriteStorage';
 

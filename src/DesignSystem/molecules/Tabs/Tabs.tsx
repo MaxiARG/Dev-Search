@@ -1,10 +1,10 @@
 import Text from '@atoms/Text/Text';
-import React, { useState } from 'react';
+import React from 'react';
 import TabsContainer from './TabsContainer.styled';
 import Divider from '@atoms/Divider/Divider';
 import { View } from 'tamagui';
 import SectionContainer from './SectionContainer.tsx/SectionContainer.styled';
-import useSelectedTabSectionAtom from 'src/common-atoms/useSelectedTabSectionAtom';
+import useTabs from './hooks/useTabs';
 
 const str = {
   search: 'Buscar',
@@ -12,17 +12,8 @@ const str = {
 };
 
 const Tabs = () => {
-  const [tabWidths, setTabWidths] = useState<number[]>([]);
-  const { selectedIndex, setSelectedIndex } = useSelectedTabSectionAtom();
-
-  const handleLayout = (index: number, width: number) => {
-    setTabWidths((prev) => {
-      const newWidths = [...prev];
-      newWidths[index] = width;
-      return newWidths;
-    });
-  };
-
+  const { handleLayout, selectedIndex, setSelectedIndex, tabWidths } =
+    useTabs();
   return (
     <View rowGap={'$gap.xxxs'}>
       <TabsContainer>
@@ -34,6 +25,7 @@ const Tabs = () => {
               handleLayout(0, e.nativeEvent.layout.width);
             }}
             onPress={() => setSelectedIndex(0)}
+            type="subtitle"
           >
             {str.search}
           </Text>
@@ -45,6 +37,7 @@ const Tabs = () => {
 
         <SectionContainer>
           <Text
+            type="subtitle"
             color={selectedIndex === 1 ? '$color.accent' : '$color.textPrimary'}
             solid={selectedIndex === 1}
             onLayout={(e) => {

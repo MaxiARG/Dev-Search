@@ -5,6 +5,7 @@ import { Pressable } from 'react-native';
 const Button: React.FC<ButtonProps> = ({
   title = 'Not Impl',
   textColor = '$color.accent',
+  style = {},
   onPress,
   ...children
 }) => {
@@ -19,10 +20,10 @@ const Button: React.FC<ButtonProps> = ({
         backgroundColor: pressed ? '#161b22' : '#0d1117',
         borderColor: pressed ? '#58a6ff' : '#30363d',
         transform: pressed ? [{ scale: 0.97 }] : [{ scale: 1 }],
-        ...children,
+        ...style,
       })}
     >
-      <Text fontSize={'$fontSize.sm'} color={textColor}>
+      <Text color={textColor} type="caption">
         {title}
       </Text>
     </Pressable>
