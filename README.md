@@ -68,5 +68,5 @@ Una aplicación móvil construida con **React Native** que permite explorar usua
 - El buscador tiene un debounce de 1 segundo a partir de la 3er letra. Es decir, no realiza busquedas con 1 o 2 letras.
 
 
-- Se incorpora Design System, con tokens, esquema de colores, atomos y moleculas y variantes de cada uno.
+- Se incorpora Design System, con tokens, esquema de colores, atomos, moleculas y variantes de cada uno.
 - 
