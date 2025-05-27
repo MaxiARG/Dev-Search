@@ -1,9 +1,9 @@
 import { Input } from 'tamagui';
 import { useState } from 'react';
 import InputContainer from '@atoms/Input/InputContainer.styled';
-import { Icon } from '@atoms/Icon/Icon.styled';
 import useSearchWithDebounce from './hooks/useSearchWithDebounce';
 import useSelectedTabSectionAtom from 'src/common-atoms/useSelectedTabSectionAtom';
+import InputToggableIcons from '@molecules/SearchInput/components/InputToggableIcons';
 
 interface SearchInputProps {
   placeholder: string;
@@ -16,10 +16,14 @@ export function SearchInput({ placeholder }: SearchInputProps) {
 
   return (
     <InputContainer focus={isFocused}>
-      <Icon name="search" size={18} color="$color.placeholder" />
+      <InputToggableIcons textValue={text} clearText={() => setText('')} />
       <Input
         onChangeText={setText}
         value={text}
+        autoComplete="off"
+        autoCorrect={false}
+        autoCapitalize="none"
+        spellCheck={false}
         paddingVertical={0}
         height={30}
         placeholder={placeholder || 'Buscar usuarios de GitHub...'}
@@ -27,6 +31,7 @@ export function SearchInput({ placeholder }: SearchInputProps) {
         backgroundColor="transparent"
         color="$color.textPrimary"
         borderWidth={0}
+        fontSize={'$fontSize.md'}
         onFocus={() => {
           setSelectedIndex(0);
           setIsFocused(true);
